@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "BackBuilder\\Bundle\\": ""
+            "BackBuilder\\Bundle\\ToolbarBundle\\": ""
         }
     },
     "minimum-stability": "dev"
