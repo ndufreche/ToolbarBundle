@@ -1,0 +1,10 @@
+
+bundle:
+    name: Toolbar bundle
+    description:
+    author: Eric Chau <eric.chau@lp-digital.fr>
+    version: 1
+    enable: true
+    bundle_loader_recipes:
+        helper: [BackBuilder\Bundle\ToolbarBundle\Toolbar, loadHelpers]
+        template: [BackBuilder\Bundle\ToolbarBundle\Toolbar, loadTemplates]

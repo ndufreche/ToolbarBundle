@@ -1,0 +1,35 @@
+
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bootstrap.min.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bb5-skin03.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bootsrap-grid.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bootsrap-resp-grid.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/jquery-ui.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/font-awesome.min.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bootstrap.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bb5-ui.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/font-awesome.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/datetimepicker/jquery.datetimepicker.css')) }}
+{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/fix.css')) }}
+
+{{ this.addHeaderJs(this.getResourceUrl('toolbar/bower_components/requirejs/require.js')) }}
+{{ this.addHeaderJs(this.getResourceUrl('toolbar/src/require.config.js')) }}
+
+<div id="bb5-ui"
+     data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
+     data-page-uid="{{ this.getCurrentPage().getUid() }}"
+     data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
+></div>
+
+{% if this.isBBUser() %}
+    <script>
+        require(['src/tb/init'], function (init) {
+            init.load(true);
+        });
+    </script>
+{% else %}
+    <script>
+        require(['src/tb/init'], function (init) {
+            init.listen();
+        });
+    </script>
+{% endif %}
