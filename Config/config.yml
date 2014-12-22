@@ -6,5 +6,5 @@ bundle:
     version: 1
     enable: true
     bundle_loader_recipes:
-        helper: [BackBuilder\Bundle\ToolbarBundle\Toolbar, loadHelpers]
-        template: [BackBuilder\Bundle\ToolbarBundle\Toolbar, loadTemplates]
+        helper: [BackBee\Bundle\ToolbarBundle\Toolbar, loadHelpers]
+        template: [BackBee\Bundle\ToolbarBundle\Toolbar, loadTemplates]
