@@ -21,7 +21,9 @@
 
 namespace BackBuilder\Bundle\ToolbarBundle;
 
+use BackBuilder\BBApplication;
 use BackBuilder\Bundle\AbstractBaseBundle;
+use BackBuilder\Config\Config;
 
 /**
  * ToolbarBundle main class
@@ -33,6 +35,38 @@ use BackBuilder\Bundle\AbstractBaseBundle;
  */
 class Toolbar extends AbstractBaseBundle
 {
+    /**
+     * Custom method to tell Renderer where to go for retrieving ToolbarBundle's helpers directory
+     *
+     * @param  BBApplication $application
+     * @param  Config        $config
+     */
+    public static function loadHelpers(BBApplication $application, Config $config)
+    {
+        $helper_dir = __DIR__ . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'helpers';
+        if (false === is_dir($helper_dir)) {
+            $application->error("Unable to load ToolbarBundle helpers directory (:$helper_dir)");
+        } else {
+            $application->getRenderer()->addHelperDir($helper_dir);
+        }
+    }
+
+    /**
+     * Custom method to tell Renderer where to go for retrieving ToolbarBundle's views directory
+     *
+     * @param  BBApplication $application
+     * @param  Config        $config
+     */
+    public static function loadTemplates(BBApplication $application, Config $config)
+    {
+        $views_dir = __DIR__ . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'views';
+        if (false === is_dir($views_dir)) {
+            $application->error("Unable to load ToolbarBundle views directory (:$views_dir)");
+        } else {
+            $application->getRenderer()->addScriptDir($views_dir);
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
