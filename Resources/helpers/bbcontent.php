@@ -81,7 +81,7 @@ class bbcontent extends AHelper
             $this->content = $content?: $this->getRenderer()->getObject();
             $this->options = $options;
 
-            $result = $this->computeAttributes();
+            $result = $this->generateAttributesString();
 
             $this->reset();
         }
