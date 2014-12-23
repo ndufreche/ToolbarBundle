@@ -167,7 +167,9 @@ class bbcontent extends AHelper
             $valid = true === $this->attributes['dropzone'];
         }
 
-        if (false === strpos(AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'Element\\', get_class($this->content))) {
+        $is_element = strpos(AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'Element\\', get_class($this->content));
+        $is_contentset = get_class($this->content) === AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'ContentSet';
+        if (false === $is_element && false === $is_contentset) {
             $this->attributes['draggable'] = isset($this->options['draggable']) ? $this->options['draggable'] : true;
             $valid = true === $this->attributes['draggable'];
         }
