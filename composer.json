@@ -1,5 +1,5 @@
 {
-    "name": "backbee/ToolbarBundle",
+    "name": "backbee/toolbar-bundle",
     "description": "ToolbarBundle is the bridge between backbee/BackBee (Php side) and backbee/BBCoreJS",
     "keywords": ["CMS", "Core", "Content Management", "No backend CMS", "User Management", "Bundle"],
     "license": "GPL-3.0+",
