@@ -1,0 +1,9 @@
+
+bundle.toolbar.get_config:
+    pattern: /rest/{version}/toolbar/config
+    defaults:
+        _action: getAction
+        _controller: toolbar.controller
+    requirements:
+        version: \d
+        _method: GET
