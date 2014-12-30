@@ -13,6 +13,9 @@
             "homepage": "https://github.com/backbee/BackBee/graphs/contributors"
         }
     ],
+    "require": {
+        "backbee/backbee": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "BackBee\\Bundle\\ToolbarBundle\\": ""

@@ -19,26 +19,37 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Renderer\Helper;
+namespace BackBee\Bundle\ToolbarBundle\Plugin;
 
 /**
+ * PluginInterface allows to declare new toolbar plugin for handling contents
  *
- *
- * @category    BackBee
- * @package     BackBee\Bundle\ToolbarBundle
- * @subpackage  Helper
- * @copyright   Lp digital system
- * @author      e.chau <eric.chau@lp-digital.fr>
+ * @category  BackBee
+ * @package   BackBee\Bundle\ToolbarBundle
+ * @copyright Lp digital system
+ * @author    e.chau <eric.chau@lp-digital.fr>
  */
-class bbtoolbar extends AHelper
+interface PluginInterface
 {
     /**
+     * Returns plugin unique name (must be in lower case and not containing whitespace, use underscore instead)
      *
-     *
-     * @return
+     * @return string
      */
-    public function __invoke()
-    {
-        return $this->getRenderer()->partial('partials/bbtoolbar.twig');
-    }
+    public function getName();
+
+    /**
+     * Return plugin namespace
+     *
+     * @return string
+     */
+    public function getNamespace();
+
+    /**
+     * Returns plugin configuration
+     *
+     * @return array
+     */
+    public function getConfig();
+
 }

@@ -1,0 +1,13 @@
+
+parameters:
+    toolbar.bundle.controller.class: BackBee\Bundle\ToolbarBundle\Controller\ConfigController
+    toolbar.bundle.plugin.manager.class: BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
+
+services:
+    plugin.manager:
+        class: %toolbar.bundle.plugin.manager.class%
+        arguments: [@service_container]
+
+    toolbar.controller:
+        class: %toolbar.bundle.controller.class%
+        arguments: [@bundle.toolbarbundle.config, @plugin.manager]
