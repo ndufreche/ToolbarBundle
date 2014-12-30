@@ -63,10 +63,6 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
         $this->plugin_manager = null;
     }
 
-    /**
-     * @covers ::getPlugins
-     * @covers ::isValidPlugin
-     */
     public function testGetPlugins()
     {
         $definition = new Definition(__NAMESPACE__ . '\\TestPlugin');
@@ -84,9 +80,6 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::getPlugins
-     * @covers ::isValidPlugin
-     *
      * @expectedException InvalidArgumentException
      */
     public function testGetInvalidPlugin()
@@ -97,9 +90,6 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
         $this->plugin_manager->getPlugins();
     }
 
-    /**
-     * @covers ::getPluginConfiguration
-     */
     public function testGetPluginConfiguration()
     {
         $definition = new Definition(__NAMESPACE__ . '\\TestPlugin');
