@@ -19,15 +19,15 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Bundle\ToolbarBundle\Plugin;
+namespace BackBuilder\Bundle\ToolbarBundle\Plugin;
 
-use BackBee\DependencyInjection\ContainerInterface;
+use BackBuilder\DependencyInjection\ContainerInterface;
 
 /**
  * PluginManager allows to handle toolbar plugin with ease
  *
- * @category  BackBee
- * @package   BackBee\Bundle\ToolbarBundle
+ * @category  BackBuilder
+ * @package   BackBuilder\Bundle\ToolbarBundle
  * @copyright Lp digital system
  * @author    e.chau <eric.chau@lp-digital.fr>
  */

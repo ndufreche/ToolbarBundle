@@ -19,19 +19,19 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Renderer\Helper;
+namespace BackBuilder\Renderer\Helper;
 
-use BackBee\ClassContent\AClassContent;
-use BackBee\ClassContent\ContentSet;
-use BackBee\Renderer\ARenderer;
+use BackBuilder\ClassContent\AClassContent;
+use BackBuilder\ClassContent\ContentSet;
+use BackBuilder\Renderer\ARenderer;
 
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 /**
  * Helper providing HTML attributes to online-edited content
  *
- * @category    BackBee
- * @package     BackBee\Renderer
+ * @category    BackBuilder
+ * @package     BackBuilder\Renderer
  * @subpackage  Helper
  * @copyright   Lp digital system
  * @author      e.chau <eric.chau@lp-digital.fr>
@@ -90,8 +90,7 @@ class bbcontent extends AHelper
     }
 
     /**
-     * [isGranted description]
-     * @return boolean [description]
+     * @return boolean
      */
     private function isGranted()
     {
@@ -113,8 +112,7 @@ class bbcontent extends AHelper
     }
 
     /**
-     * [reset description]
-     * @return [type] [description]
+     * Reset attributes, options and content
      */
     private function reset()
     {
@@ -129,10 +127,6 @@ class bbcontent extends AHelper
         $this->options = [];
     }
 
-    /**
-     * [computeAttributes description]
-     * @return [type] [description]
-     */
     private function generateAttributesString()
     {
         $this->computeClassAttribute();

@@ -1,7 +1,7 @@
 
 parameters:
-    toolbar.bundle.controller.class: BackBee\Bundle\ToolbarBundle\Controller\ConfigController
-    toolbar.bundle.plugin.manager.class: BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
+    toolbar.bundle.controller.class: BackBuilder\Bundle\ToolbarBundle\Controller\ConfigController
+    toolbar.bundle.plugin.manager.class: BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager
 
 services:
     plugin.manager:

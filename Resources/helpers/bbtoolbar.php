@@ -19,13 +19,13 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Renderer\Helper;
+namespace BackBuilder\Renderer\Helper;
 
 /**
  *
  *
- * @category    BackBee
- * @package     BackBee\Bundle\ToolbarBundle
+ * @category    BackBuilder
+ * @package     BackBuilder\Bundle\ToolbarBundle
  * @subpackage  Helper
  * @copyright   Lp digital system
  * @author      e.chau <eric.chau@lp-digital.fr>

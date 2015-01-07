@@ -19,10 +19,10 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Bundle\ToolbarBundle\Tests\Plugin;
+namespace BackBuilder\Bundle\ToolbarBundle\Tests\Plugin;
 
-use BackBee\Bundle\ToolbarBundle\Plugin\PluginManager;
-use BackBee\DependencyInjection\Container;
+use BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager;
+use BackBuilder\DependencyInjection\Container;
 
 use Symfony\Component\DependencyInjection\Definition;
 
@@ -31,17 +31,17 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author e.chau <eric.chau@lp-digital.fr>
  *
- * @coversDefaultClass \BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
+ * @coversDefaultClass \BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager
  */
 class PluginManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var BackBee\DependencyInjection\Container
+     * @var BackBuilder\DependencyInjection\Container
      */
     private $container;
 
     /**
-     * @var BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
+     * @var BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager
      */
     private $plugin_manager;
 
@@ -75,7 +75,7 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(2, $plugins);
         foreach ($plugins as $p) {
-            $this->assertInstanceOf('BackBee\Bundle\ToolbarBundle\Plugin\PluginInterface', $p);
+            $this->assertInstanceOf('BackBuilder\Bundle\ToolbarBundle\Plugin\PluginInterface', $p);
         }
     }
 

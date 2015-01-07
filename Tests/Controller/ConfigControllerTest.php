@@ -19,12 +19,12 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Bundle\ToolbarBundle\Tests\Controller;
+namespace BackBuilder\Bundle\ToolbarBundle\Tests\Controller;
 
-use BackBee\Bundle\ToolbarBundle\Controller\ConfigController;
-use BackBee\Bundle\ToolbarBundle\Plugin\PluginManager;
-use BackBee\Config\Config;
-use BackBee\DependencyInjection\Container;
+use BackBuilder\Bundle\ToolbarBundle\Controller\ConfigController;
+use BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager;
+use BackBuilder\Config\Config;
+use BackBuilder\DependencyInjection\Container;
 
 use Symfony\Component\DependencyInjection\Definition;
 
@@ -33,7 +33,7 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author e.chau <eric.chau@lp-digital.fr>
  *
- * @coversDefaultClass \BackBee\Bundle\ToolbarBundle\Controller\ConfigController
+ * @coversDefaultClass \BackBuilder\Bundle\ToolbarBundle\Controller\ConfigController
  */
 class ConfigControllerTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,7 +52,7 @@ class ConfigControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $definition = new Definition('BackBee\Bundle\ToolbarBundle\Tests\Plugin\TestPlugin');;
+        $definition = new Definition('BackBuilder\Bundle\ToolbarBundle\Tests\Plugin\TestPlugin');;
         $container = new Container();
         $container->setDefinition('test_plugin', $definition->addTag(PluginManager::PLUGIN_SERVICE_TAG));
         $this->plugin_manager = new PluginManager($container);

@@ -19,18 +19,18 @@
  * along with BackBee. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace BackBee\Bundle\ToolbarBundle\Controller;
+namespace BackBuilder\Bundle\ToolbarBundle\Controller;
 
-use BackBee\Bundle\ToolbarBundle\Plugin\PluginManager;
-use BackBee\Config\Config;
+use BackBuilder\Bundle\ToolbarBundle\Plugin\PluginManager;
+use BackBuilder\Config\Config;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * ToolbarBundle config API allows to get toolbar, plugin, rte, etc. configurations
  *
- * @category  BackBee
- * @package   BackBee\Bundle\ToolbarBundle
+ * @category  BackBuilder
+ * @package   BackBuilder\Bundle\ToolbarBundle
  * @copyright Lp digital system
  * @author    e.chau <eric.chau@lp-digital.fr>
  */
