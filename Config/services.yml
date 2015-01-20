@@ -10,4 +10,4 @@ services:
 
     toolbar.controller:
         class: %toolbar.bundle.controller.class%
-        arguments: [@bundle.toolbarbundle.config, @plugin.manager]
+        arguments: [@bundle.toolbar.config, @plugin.manager]

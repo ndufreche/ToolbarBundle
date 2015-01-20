@@ -22,7 +22,7 @@
 namespace BackBee\Bundle\ToolbarBundle;
 
 use BackBee\BBApplication;
-use BackBee\Bundle\AbstractBaseBundle;
+use BackBee\Bundle\AbstractBundle;
 use BackBee\Config\Config;
 
 /**
@@ -33,7 +33,7 @@ use BackBee\Config\Config;
  * @copyright   Lp digital system
  * @author      e.chau <eric.chau@lp-digital.fr>
  */
-class Toolbar extends AbstractBaseBundle
+class Toolbar extends AbstractBundle
 {
     /**
      * Custom method to tell Renderer where to go for retrieving ToolbarBundle's helpers directory
