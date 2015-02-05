@@ -51,7 +51,6 @@ class bbcontent extends AHelper
     private $content;
 
     /**
-     * [$options description]
      * @var array
      */
     private $options;
@@ -68,30 +67,30 @@ class bbcontent extends AHelper
     }
 
     /**
-     * Return HTML formatted attribute for provided content
-     * @param  AClassContent $content the content we want to generate its HTML attribute; if $content is null, we
-     *                                get the current object setted on current renderer
+     * Return HTML formatted attribute for provided content.
+     *
+     * @param  AClassContent $content the content we want to generate its HTML attribute; if $content is null,
+     *                                we get the current object setted on current renderer
      * @return string
      */
     public function __invoke(AClassContent $content = null, array $options = [])
     {
         $result = '';
 
-        // if ($this->isGranted()) {
+        if ($this->isGranted()) {
             $this->content = $content?: $this->getRenderer()->getObject();
             $this->options = $options;
 
             $result = $this->generateAttributesString();
 
             $this->reset();
-        // }
+        }
 
         return $result;
     }
 
     /**
-     * [isGranted description]
-     * @return boolean [description]
+     * @return boolean
      */
     private function isGranted()
     {
@@ -113,8 +112,7 @@ class bbcontent extends AHelper
     }
 
     /**
-     * [reset description]
-     * @return [type] [description]
+     * Resets options.
      */
     private function reset()
     {
@@ -130,8 +128,7 @@ class bbcontent extends AHelper
     }
 
     /**
-     * [computeAttributes description]
-     * @return [type] [description]
+     * @return string
      */
     private function generateAttributesString()
     {
@@ -189,7 +186,6 @@ class bbcontent extends AHelper
     }
 
     /**
-     * [getAttributesString description]
      * @return string
      */
     private function getAttributesString()

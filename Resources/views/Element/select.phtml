@@ -1,3 +1,0 @@
-<?php $options = $this->getParam('options'); ?>
-<?php $options = is_array($options) ? reset($options) : array(); ?>
-<div <?php echo $this->bbcontent();?>><?php echo  array_key_exists($this->value, $options) ? $options[$this->value] : ''; ?></div>
