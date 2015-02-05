@@ -45,7 +45,7 @@ class ConfigController
     /**
      * @var PluginManager
      */
-    private $plugin_manager;
+    private $pluginManager;
 
     /**
      * ConfigController's constructor
@@ -56,7 +56,7 @@ class ConfigController
     public function __construct(Config $config, PluginManager $manager)
     {
         $this->config = $config;
-        $this->plugin_manager = $manager;
+        $this->pluginManager = $manager;
     }
 
     /**
@@ -66,6 +66,12 @@ class ConfigController
      */
     public function getAction()
     {
-        return new JsonResponse($this->plugin_manager->getPluginConfiguration());
+        $settings = $this->config->getSettingsConfig();
+        $corePlugins = $this->config->getPluginsConfig();
+
+        return new JsonResponse(array_merge(
+            $settings ?: [],
+            $this->pluginManager->getPluginConfiguration()
+        ));
     }
 }

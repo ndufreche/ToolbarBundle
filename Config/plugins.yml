@@ -1,0 +1,35 @@
+namespace:
+    core: src/tb/apps/content/plugins/
+    demo: ~
+
+core:
+    edit:
+        accept: ['BlockDemo', 'Bloc/contentset_bfm']
+        config: []
+
+    contentselector:
+        accept: ['Home/HomeContainer', 'Bloc/contentset_bfm']
+        config:
+            appendPosition: bottom
+            Home/HomeContainer:
+                accept: ['Article', 'Paragraph']
+            Bloc/contentset_bfm:
+                accept: ['Article']
+
+    contenttype:
+        accept: ['Home/HomeContainer', 'BlockDemo']
+        config: []
+
+    parameters:
+        accept: ['Home/HomeContainer', 'BlockDemo']
+        config: []
+
+    contentsetplus:
+        accept: ['Container/OneColumn']
+        config: []
+
+    remove:
+        accept: ['BlockDemo']
+        config: []
+
+demo: []
