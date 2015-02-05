@@ -80,16 +80,16 @@ class PluginManager
      */
     public function getPluginConfiguration()
     {
+        $toolbarPluginConfig = $this->container->get('bundle.toolbar.config')->getPluginsConfig();
         $config = [
-            'plugin' => [
-                'namespace' => [],
-                'config'    => []
-            ]
+            'plugins' => array_merge([
+                'namespace' => []
+            ], $toolbarPluginConfig ?: []),
         ];
 
         foreach ($this->getPlugins() as $plugin) {
-            $config['plugin']['namespace'][$plugin->getName()] = $plugin->getNamespace();
-            $config['plugin']['config'][$plugin->getName()] = $plugin->getConfig();
+            $config['plugins']['namespace'][$plugin->getName()] = $plugin->getNamespace();
+            $config['plugins'][$plugin->getName()] = $plugin->getConfig();
         }
 
         return $config;
