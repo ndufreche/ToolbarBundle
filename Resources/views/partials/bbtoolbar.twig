@@ -3,25 +3,14 @@
 {{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/components-font-awesome/css/font-awesome.css')) }}
 {{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/datetimepicker/jquery.datetimepicker.css')) }}
 
-{{ this.addHeaderJs(this.getResourceUrl('toolbar/bower_components/requirejs/require.js')) }}
-{{ this.addHeaderJs(this.getResourceUrl('toolbar/src/require.config.js')) }}
+<script data-main="{{ this.getResourceUrl('toolbar/src/require.config.js') }}" src="{{ this.getResourceUrl('toolbar/bower_components/requirejs/require.js') }}"></script>
 
 <div id="bb5-ui"
-     data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
-     data-page-uid="{{ this.getCurrentPage().getUid() }}"
-     data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
+    data-api="{{ this.getUri('/rest/1/') }}"
+    {% if this.isBBUser() %}
+    data-autostart
+    data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
+    data-page-uid="{{ this.getCurrentPage().getUid() }}"
+    data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
+    {% endif %}
 ></div>
-
-{% if this.isBBUser() %}
-    <script>
-        require(['src/tb/init'], function (init) {
-            init.load(true);
-        });
-    </script>
-{% else %}
-    <script>
-        require(['src/tb/init'], function (init) {
-            init.listen();
-        });
-    </script>
-{% endif %}
