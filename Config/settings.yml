@@ -35,4 +35,27 @@ core:
                     mainRoute: contribution/index
 
 component:
-    logger: []
+    
+    logger: 
+        level: 8
+        mode: 'devel'
+        
+    exceptions-viewer: 
+        show: true
+        
+    translator: 
+        base: 'src/tb/i18n/'
+        locale: 'en_US'
+        
+        
+unclickable_contents: 
+    contents: 
+        - 'Element/Text'
+        - 'Element/Attachment'
+        - 'Element/Date'
+        - 'Element/File'
+        - 'Element/Image'
+        - 'Element/Keyword'
+        - 'Element/Link'
+        - 'Element/Select'
+        - 'ContentSet'
