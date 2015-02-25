@@ -33,7 +33,9 @@ core:
                 label: Contribution
                 config:
                     mainRoute: contribution/index
-
+    
+wrapper_toolbar_selector: '#bb5-ui'
+        
 component:
     
     logger: 
