@@ -33,25 +33,30 @@ core:
                 label: Contribution
                 config:
                     mainRoute: contribution/index
-    
+
+            user:
+                label: User
+                config:
+                    mainRoute: user/index
+
 wrapper_toolbar_selector: '#bb5-ui'
-        
+
 component:
-    
-    logger: 
+
+    logger:
         level: 8
         mode: 'devel'
-        
-    exceptions-viewer: 
+
+    exceptions-viewer:
         show: true
-        
-    translator: 
+
+    translator:
         base: 'resources/toolbar/src/tb/i18n/'
         locale: 'en_US'
-        
-        
-unclickable_contents: 
-    contents: 
+
+
+unclickable_contents:
+    contents:
         - 'Element/Text'
         - 'Element/Attachment'
         - 'Element/Date'
