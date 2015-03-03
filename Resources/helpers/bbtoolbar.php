@@ -39,6 +39,14 @@ class bbtoolbar extends AHelper
      */
     public function __invoke()
     {
-        return $this->getRenderer()->partial('partials/bbtoolbar.twig');
+        $settings = $this->getRenderer()
+                         ->getApplication()
+                         ->getContainer()
+                         ->get('bundle.toolbar.config')
+                         ->getSettingsSection();
+        
+        $wrapper = (isset($settings['wrapper_toolbar_id'])) ? $settings['wrapper_toolbar_id'] : '';
+        
+        return $this->getRenderer()->partial('partials/bbtoolbar.twig', array('wrapper' => $wrapper));
     }
 }

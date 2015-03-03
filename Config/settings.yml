@@ -34,7 +34,7 @@ core:
                 config:
                     mainRoute: contribution/index
     
-wrapper_toolbar_selector: '#bb5-ui'
+wrapper_toolbar_id: 'bb5-ui'
         
 component:
     
