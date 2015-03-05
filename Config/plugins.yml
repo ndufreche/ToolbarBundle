@@ -18,22 +18,22 @@ core:
     remove:
         accept: ['*']
         config: []
-        
+
     edition:
         accept: ['*']
         config: []
-        
+
     rte:
         accept: ['*']
-        config: 
+        config:
             adapter: 'cke'
             aloha:
                 libPath: ''
-            cke: 
+            cke:
                 libName: 'ckeeditor'
                 skin: 'backbee,/resources/toolbar/src/tb/component/cke/skins/backbee/'
-                editableConfig: 
-                    basic: 
+                editableConfig:
+                    basic:
                         title: ''
                         toolbarGroups:
                             - {name: 'editing', groups: ['basicstyles', 'links']}
@@ -41,7 +41,7 @@ core:
                             - {name: 'clipboard', groups: ['selection', 'clipboard']}
                             - {name: 'about'}
                         removePlugins: 'colorbutton,find,flash,font,forms,iframe,newpage,removeformat,smiley,specialchar,stylescombo,templates'
-                    lite: 
+                    lite:
                         title: "lite editor"
                         toolbarGroups: []
                         removePlugins: 'colorbutton,specialchar'
