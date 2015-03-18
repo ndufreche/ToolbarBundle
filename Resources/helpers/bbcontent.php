@@ -118,8 +118,6 @@ class bbcontent extends AHelper
     {
         $this->attributes = [
             'class'              => ['bb-content'],
-            'draggable'          => null,
-            'dropzone'           => null,
             'data-bb-identifier' => null
         ];
 
@@ -160,15 +158,14 @@ class bbcontent extends AHelper
     {
         $valid = false;
         if ($this->content instanceof ContentSet) {
-            $this->attributes['dropzone'] = isset($this->options['dropzone']) ? $this->options['dropzone'] : true;
-            $valid = true === $this->attributes['dropzone'];
+            $valid = true === (isset($this->options['dropzone']) ? $this->options['dropzone'] : true);
+            $this->attributes['class'][] = 'bb-droppable';
         }
 
         $is_element = strpos(get_class($this->content), AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'Element\\');
         $is_contentset = get_class($this->content) === AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'ContentSet';
         if (false === $is_element && false === $is_contentset) {
-            $this->attributes['draggable'] = isset($this->options['draggable']) ? $this->options['draggable'] : true;
-            $valid = true === $this->attributes['draggable'];
+            $valid = true === (isset($this->options['draggable']) ? $this->options['draggable'] : true);
         }
 
         if ($valid) {
