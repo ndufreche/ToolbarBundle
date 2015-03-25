@@ -48,7 +48,7 @@ class ScriptHandler
      */
     private static function getRootDir()
     {
-        return __DIR__.DIRECTORY_SEPARATOR.'..';
+        return getcwd();
     }
     /**
      * path to BbCoreJS vendor
