@@ -17,7 +17,7 @@
         {
             "type":"package",
             "package": {
-                "name": "backbee/BbCoreJs",
+                "name": "backbee/client-js",
                 "description": "Javascript client for BackBee CMS",
                 "version": "dev-master",
                 "dist": {
@@ -31,18 +31,12 @@
         "php": ">=5.4.0",
         "incenteev/composer-parameter-handler": "~2.1",
         "backbee/backbee": "dev-master",
-        "backbee/BbCoreJS": "master",
-        "symfony/filesystem": "~2.3"
+        "backbee/client-js": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "BackBee\\Bundle\\ToolbarBundle\\": ""
         }
-    },
-    "scripts": {
-        "post-update-cmd": [
-            "BackBee\\Bundle\\ToolbarBundle\\Composer\\ScriptHandler::moveClient"
-        ]
     },
     "minimum-stability": "dev"
 }
