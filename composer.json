@@ -13,25 +13,11 @@
             "homepage": "https://github.com/backbee/BackBee/graphs/contributors"
         }
     ],
-    "repositories": [
-        {
-            "type":"package",
-            "package": {
-                "name": "backbee/client-js",
-                "description": "Javascript client for BackBee CMS",
-                "version": "dev-master",
-                "dist": {
-                    "url": "https://github.com/backbee/BbCoreJs/archive/master.zip",
-                    "type": "zip"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
         "incenteev/composer-parameter-handler": "~2.1",
         "backbee/backbee": "1.0.*@dev",
-        "backbee/client-js": "1.0.*@dev"
+        "backbee/bb-core-js": "1.0.*@dev"
     },
     "autoload": {
         "psr-4": {
