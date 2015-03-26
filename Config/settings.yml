@@ -38,6 +38,9 @@ core:
                 label: User
                 config:
                     mainRoute: user/index
+                scope:
+                    global:
+                        open: user.showCurrent
 
 wrapper_toolbar_id: 'bb5-ui'
 
