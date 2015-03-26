@@ -30,13 +30,18 @@
     "require": {
         "php": ">=5.4.0",
         "incenteev/composer-parameter-handler": "~2.1",
-        "backbee/backbee": "dev-master",
-        "backbee/client-js": "dev-master"
+        "backbee/backbee": "1.0.*@dev",
+        "backbee/client-js": "1.0.*@dev"
     },
     "autoload": {
         "psr-4": {
             "BackBee\\Bundle\\ToolbarBundle\\": ""
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
 }
