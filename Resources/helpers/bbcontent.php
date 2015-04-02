@@ -21,9 +21,9 @@
 
 namespace BackBee\Renderer\Helper;
 
-use BackBee\ClassContent\AClassContent;
+use BackBee\ClassContent\AbstractClassContent;
 use BackBee\ClassContent\ContentSet;
-use BackBee\Renderer\ARenderer;
+use BackBee\Renderer\AbstractRenderer;
 
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
@@ -36,7 +36,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundE
  * @copyright   Lp digital system
  * @author      e.chau <eric.chau@lp-digital.fr>
  */
-class bbcontent extends AHelper
+class bbcontent extends AbstractHelper
 {
     /**
      * array that contains
@@ -59,7 +59,7 @@ class bbcontent extends AHelper
      * bbcontent helper constructor
      * @param ARenderer $renderer
      */
-    public function __construct(ARenderer $renderer)
+    public function __construct(AbstractRenderer $renderer)
     {
         parent::__construct($renderer);
 
@@ -73,7 +73,7 @@ class bbcontent extends AHelper
      *                                we get the current object setted on current renderer
      * @return string
      */
-    public function __invoke(AClassContent $content = null, array $options = [])
+    public function __invoke(AbstractClassContent $content = null, array $options = [])
     {
         $result = '';
 
@@ -162,8 +162,8 @@ class bbcontent extends AHelper
             $this->attributes['class'][] = 'bb-droppable';
         }
 
-        $is_element = strpos(get_class($this->content), AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'Element\\');
-        $is_contentset = get_class($this->content) === AClassContent::CLASSCONTENT_BASE_NAMESPACE . 'ContentSet';
+        $is_element = strpos(get_class($this->content), AbstractClassContent::CLASSCONTENT_BASE_NAMESPACE . 'Element\\');
+        $is_contentset = get_class($this->content) === AbstractClassContent::CLASSCONTENT_BASE_NAMESPACE . 'ContentSet';
         if (false === $is_element && false === $is_contentset) {
             $valid = true === (isset($this->options['draggable']) ? $this->options['draggable'] : true);
         }
