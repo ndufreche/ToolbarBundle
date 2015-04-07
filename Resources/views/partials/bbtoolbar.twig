@@ -1,18 +1,31 @@
+{% set folder = 'dist' %}
+{% if this.debug() %}
+    {% set folder = 'html' %}
+{% endif %}
 
-{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bb-ui.css')) }}
-{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/components-font-awesome/css/font-awesome.css')) }}
-{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/datetimepicker/jquery.datetimepicker.css')) }}
-{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/dropzone/dist/dropzone.css')) }}
+{% if this.isBBUser() %}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/' ~ folder ~ '/css/bb-ui.css')) }}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/' ~ folder ~ '/css/vendor.css')) }}
+{% else %}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/' ~ folder ~ '/css/bb-ui-login.css')) }}
+{% endif %}
 
-<script data-main="{{ this.getResourceUrl('toolbar/src/require.config.js') }}" src="{{ this.getResourceUrl('toolbar/bower_components/requirejs/require.js') }}"></script>
+<script
+    {% if this.debug() %}
+        data-main="{{ this.getResourceUrl('toolbar/src/require.config.js') }}"
+    {% else %}
+        data-main="{{ this.getResourceUrl('toolbar/src/require.config.build.js') }}"
+    {% endif %}
+    src="{{ this.getResourceUrl('toolbar/bower_components/requirejs/require.js') }}"
+></script>
 
 <div id="{{ wrapper }}"
     data-api="{{ this.getUri('/rest/1/') }}"
     data-toolbar-selector="true"
     {% if this.isBBUser() %}
-    data-autostart
-    data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
-    data-page-uid="{{ this.getCurrentPage().getUid() }}"
-    data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
+        data-autostart
+        data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
+        data-page-uid="{{ this.getCurrentPage().getUid() }}"
+        data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
     {% endif %}
 ></div>
