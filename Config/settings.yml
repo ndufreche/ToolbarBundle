@@ -10,11 +10,6 @@ core:
                 config:
                     mainRoute: appMain/index
 
-            layout:
-                label: Layout
-                config:
-                    mainRoute: appLayout/home
-
             content:
                 label: Edition du contenu
                 config: []
