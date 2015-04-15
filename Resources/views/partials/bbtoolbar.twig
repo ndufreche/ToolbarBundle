@@ -1,17 +1,27 @@
+{% set isMin = '.min' %}
+{% if this.isDebug() %}
+    {% set isMin = '' %}
+{% endif %}
 
-{{ this.addStylesheet(this.getResourceUrl('toolbar/html/css/bb-ui.css')) }}
-{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/components-font-awesome/css/font-awesome.css')) }}
-{{ this.addStylesheet(this.getResourceUrl('toolbar/bower_components/datetimepicker/jquery.datetimepicker.css')) }}
+{% if this.isBBUser() %}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/bb-ui' ~ isMin ~ '.css')) }}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/vendor' ~ isMin ~ '.css')) }}
+{% else %}
+    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/bb-ui-login' ~ isMin ~ '.css')) }}
+{% endif %}
 
-<script data-main="{{ this.getResourceUrl('toolbar/src/require.config.js') }}" src="{{ this.getResourceUrl('toolbar/bower_components/requirejs/require.js') }}"></script>
+<script
+    data-main="{{ this.getResourceUrl('toolbar/dist/config' ~ isMin ~ '.js') }}"
+    src="{{ this.getResourceUrl('toolbar/dist/require' ~ isMin ~ '.js') }}"
+></script>
 
 <div id="{{ wrapper }}"
     data-api="{{ this.getUri('/rest/1/') }}"
     data-toolbar-selector="true"
     {% if this.isBBUser() %}
-    data-autostart
-    data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
-    data-page-uid="{{ this.getCurrentPage().getUid() }}"
-    data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
+        data-autostart
+        data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
+        data-page-uid="{{ this.getCurrentPage().getUid() }}"
+        data-layout-uid="{{ this.getCurrentPage().getLayout().getUid() }}"
     {% endif %}
 ></div>

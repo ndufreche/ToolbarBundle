@@ -30,7 +30,7 @@ namespace BackBee\Renderer\Helper;
  * @copyright   Lp digital system
  * @author      e.chau <eric.chau@lp-digital.fr>
  */
-class bbtoolbar extends AHelper
+class bbtoolbar extends AbstractHelper
 {
     /**
      *
