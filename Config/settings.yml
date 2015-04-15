@@ -50,6 +50,10 @@ component:
     exceptions-viewer:
         show: true
 
+    medialibrary:
+        available_media:
+          - {title: 'Image', type: 'Media/Image', ico: 'fa fa-picture'}
+
     translator:
         base: 'resources/toolbar/src/tb/i18n/'
         locale: 'en_US'
