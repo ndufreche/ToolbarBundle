@@ -1,5 +1,5 @@
 {% set isMin = '.min' %}
-{% if this.isDebug() %}
+{% if this.isToolbarDebug() %}
     {% set isMin = '' %}
 {% endif %}
 
@@ -12,7 +12,7 @@
 
 <script
     data-main="{{ this.getResourceUrl('toolbar/dist/config' ~ isMin ~ '.js') }}"
-    src="{{ this.getResourceUrl('toolbar/dist/require' ~ isMin ~ '.js') }}"
+    src="{{ this.getResourceUrl('toolbar/dist/require.js') }}"
 ></script>
 
 <div id="{{ wrapper }}"
