@@ -8,3 +8,11 @@ bundle:
     bundle_loader_recipes:
         helper: [BackBee\Bundle\ToolbarBundle\Toolbar, loadHelpers]
         template: [BackBee\Bundle\ToolbarBundle\Toolbar, loadTemplates]
+
+    ##
+    # This part of config file is for debug the javascript
+    # If you want debug the PHP part use debug param into bootstrap.yml
+    #
+    # If you set debug true be sure to have correctly installed the javascript development envirronment see README.md => https://github.com/backbee/BbCoreJs
+    ##
+    debug: false
