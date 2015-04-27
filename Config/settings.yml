@@ -39,6 +39,8 @@ core:
 
 wrapper_toolbar_id: 'bb5-ui'
 
+default_url: 'content/contribution/edit'
+
 component:
 
     logger:
@@ -55,9 +57,9 @@ component:
     translator:
         base: 'resources/toolbar/src/tb/i18n/'
         locale: 'en_US'
-        
+
     medialibrary:
-        available_media: 
+        available_media:
             - { 'type': 'Media/Image', 'title': 'Image' }
 
 
