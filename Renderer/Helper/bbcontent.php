@@ -94,15 +94,16 @@ class bbcontent extends AbstractHelper
      */
     private function isGranted()
     {
-        $security_context = $this->getRenderer()->getApplication()->getSecurityContext();
-        $result = false;
+        $securityContext = $this->getRenderer()->getApplication()->getSecurityContext();
 
         try {
             $result = (
                 null !== $this->getRenderer()->getApplication()->getBBUserToken()
-                && $security_context->isGranted('VIEW', $this->content)
+                && $securityContext->isGranted('VIEW', $this->content)
             );
-        } catch (AuthenticationCredentialsNotFoundException $e) { /* Nothing to do */ }
+        } catch (AuthenticationCredentialsNotFoundException $e) {
+            $result = false;
+        }
 
         return $result;
     }
