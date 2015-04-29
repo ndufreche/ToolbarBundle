@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+{{ this.partial('partials/header-head.twig')|raw }}
+{{ this.addStylesheet(this.getResourceUrl('css/style_reset.css')) }}
+<body>
+    {{ this.bbtoolbar() }}
+    <div id="bb5-site-wrapper">
+        <div class="container" id="body-wrapper">
+            <div class="row" id="bb5-mainLayoutRow">
+                <div class="span12">
+                    <section role="main" class="section">
+                        <h1>An error has occurred&hellip;</h1>
+                        <div class="announcement-wrapper">
+                            <p>{{ this.error_message }}</p>
+                            {{ this.error_trace }}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
