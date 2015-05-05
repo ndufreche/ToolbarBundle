@@ -73,4 +73,3 @@ unclickable_contents:
         - 'Element/Keyword'
         - 'Element/Link'
         - 'Element/Select'
-        - 'ContentSet'
