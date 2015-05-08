@@ -43,11 +43,11 @@ class Toolbar extends AbstractBundle
      */
     public static function loadHelpers(BBApplication $application, Config $config)
     {
-        $helper_dir = __DIR__ . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'helpers';
-        if (false === is_dir($helper_dir)) {
-            $application->error("Unable to load ToolbarBundle helpers directory (:$helper_dir)");
+        $helperDir = __DIR__.DIRECTORY_SEPARATOR.'Renderer'.DIRECTORY_SEPARATOR.'Helper';
+        if (!is_dir($helperDir)) {
+            $application->error("Unable to load ToolbarBundle helpers directory (:$helperDir)");
         } else {
-            $application->getRenderer()->addHelperDir($helper_dir);
+            $application->getRenderer()->addHelperDir($helperDir);
         }
     }
 
@@ -59,11 +59,11 @@ class Toolbar extends AbstractBundle
      */
     public static function loadTemplates(BBApplication $application, Config $config)
     {
-        $views_dir = __DIR__ . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'views';
-        if (false === is_dir($views_dir)) {
-            $application->error("Unable to load ToolbarBundle views directory (:$views_dir)");
+        $viewsDir = __DIR__.DIRECTORY_SEPARATOR.'Resources'.DIRECTORY_SEPARATOR.'views';
+        if (!is_dir($viewsDir)) {
+            $application->error("Unable to load ToolbarBundle views directory (:$viewsDir)");
         } else {
-            $application->getRenderer()->addScriptDir($views_dir);
+            $application->getRenderer()->addScriptDir($viewsDir);
         }
     }
 

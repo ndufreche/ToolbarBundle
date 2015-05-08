@@ -46,7 +46,7 @@ class bbcontent extends AbstractHelper
 
     /**
      * the classcontent we are processing to get its attributes as string
-     * @var AClassContent
+     * @var AbstractClassContent
      */
     private $content;
 
@@ -69,8 +69,8 @@ class bbcontent extends AbstractHelper
     /**
      * Return HTML formatted attribute for provided content.
      *
-     * @param  AClassContent $content the content we want to generate its HTML attribute; if $content is null,
-     *                                we get the current object setted on current renderer
+     * @param  AbstractClassContent $content the content we want to generate its HTML attribute;
+     *                                       if content is null, we get the current object setted on current renderer
      * @return string
      */
     public function __invoke(AbstractClassContent $content = null, array $options = [])
