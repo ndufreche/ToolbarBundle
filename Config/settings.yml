@@ -55,7 +55,7 @@ component:
           - {title: 'Image', type: 'Media/Image', ico: 'fa fa-picture'}
 
     translator:
-        base: 'resources/toolbar/src/tb/i18n/'
+        base: '/resources/toolbar/src/tb/i18n/'
         locale: 'en_US'
 
     medialibrary:
