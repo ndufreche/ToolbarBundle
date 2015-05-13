@@ -1,6 +1,6 @@
 core:
     ApplicationManager:
-        appPath: resources/toolbar/src/tb/apps
+        appPath: /resources/toolbar/src/tb/apps
         active: main
         route: ""
         applications:
