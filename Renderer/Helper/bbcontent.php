@@ -76,9 +76,9 @@ class bbcontent extends AbstractHelper
     public function __invoke(AbstractClassContent $content = null, array $options = [])
     {
         $result = '';
+        $this->content = $content?: $this->getRenderer()->getObject();
 
         if ($this->isGranted()) {
-            $this->content = $content?: $this->getRenderer()->getObject();
             $this->options = $options;
 
             $result = $this->generateAttributesString();
@@ -94,19 +94,16 @@ class bbcontent extends AbstractHelper
      */
     private function isGranted()
     {
-        $security_context = $this->getRenderer()->getApplication()->getSecurityContext();
-        $result = false;
+        $securityContext = $this->getRenderer()->getApplication()->getSecurityContext();
 
         try {
             $result = (
                 null !== $this->getRenderer()->getApplication()->getBBUserToken()
-                && (
-                    true === $security_context->isGranted('sudo')
-                    || null === $security_context->getACLProvider()
-                    || true === $security_context->isGranted('VIEW', $this->content)
-                )
+                && $securityContext->isGranted('VIEW', $this->content)
             );
-        } catch (AuthenticationCredentialsNotFoundException $e) { /* Nothing to do */ }
+        } catch (AuthenticationCredentialsNotFoundException $e) {
+            $result = false;
+        }
 
         return $result;
     }
