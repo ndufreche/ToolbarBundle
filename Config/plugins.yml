@@ -49,8 +49,10 @@ core:
                             - {name: 'clipboard', groups: ['selection', 'clipboard']}
                             - {name: 'about'}
                         removePlugins: 'colorbutton,find,flash,font,forms,iframe,newpage,removeformat,smiley,specialchar,stylescombo,templates'
+                        removeButtons: 'About,Anchor'
                     lite:
                         title: "lite editor"
                         toolbarGroups: []
-                        removePlugins: 'colorbutton,specialchar'
+                        removePlugins: 'colorbutton,specialchar,links'
+                        removeButtons: 'About,Anchor'
 demo: []

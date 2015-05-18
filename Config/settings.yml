@@ -49,6 +49,7 @@ component:
 
     exceptions-viewer:
         show: true
+        showInConsole: true
 
     medialibrary:
         available_media:
