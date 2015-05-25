@@ -24,6 +24,7 @@
 namespace BackBee\Bundle\ToolbarBundle\Listener;
 
 use BackBee\Event\Event;
+use BackBee\Site\Site;
 use BackBee\Security\User;
 
 /*
@@ -34,21 +35,23 @@ use BackBee\Security\User;
  * @subpackage  Listener
  * @copyright   Lp digital system
  * @author      n.dufreche <nicolas.dufreche@lp-digital.fr>
+ * @author      Mickaël Andrieu <mickael.andrieu@lp-digital.fr>
  */
 class UserListener
 {
     public static function onUserCreated(Event $event)
     {
         $application = $event->getDispatcher()->getApplication();
+        $site = $application->getSite();
         $user = $event->getTarget();
 
-        if ($user instanceof User) {
+        if ($user instanceof User && $site instanceof Site) {
             $body = $application->getRenderer()->partial(
                 'Email/NewUser.twig',
                 [
                     'user' => $user,
-                    'site_name' => $application->getSite()->getLabel(),
-                    'home_link' => $application->getSite()->getServerName()
+                    'site_name' => $site->getLabel(),
+                    'home_link' => $site->getServerName()
                 ]
             );
 
