@@ -4,9 +4,9 @@ parameters:
     toolbar.bundle.plugin.manager.class: BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
 
     error.base_folder: %bbapp.base.dir%/../toolbar-bundle/Resources/layouts/error/
-    error.404: '404.twig'
-    error.500: '500.twig'
-    error.default: 'default.twig'
+    error.404: 'error.twig'
+    error.500: 'error.twig'
+    error.default: 'error.twig'
 
 services:
     plugin.manager:

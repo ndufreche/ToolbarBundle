@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>Error: {{ error.getMessage() }}</title>
+    <!--Adobe Edge Runtime-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script type="text/javascript" charset="utf-8" src="{{ this.getResourceUrl('layouts/error/edge_includes/edge.5.0.1.min.js') }}"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ this.getResourceUrl('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Extra CSS -->
+    <link href="{{ this.getResourceUrl('css/font-awesome.min.css') }}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Script: HTML5 shim + features detection -->
+    <script src="{{ this.getResourceUrl('js/modernizr.custom.min.js') }}"></script>
+
+
+    <style>
+        .edgeLoad-EDGE-332018913 { visibility:hidden; }
+    </style>
+
+    {% set errorUrl = this.getResourceUrl('layouts/error/js/') %}
+    {% set imageUrl = this.getResourceUrl('layouts/error/images/') %}
+<script>
+   errorCode = {{ error.getStatusCode() }};
+   AdobeEdge.loadComposition('{{ errorUrl }}error', 'EDGE-332018913', {
+    scaleToFit: "none",
+    centerStage: "none",
+    minW: "0",
+    maxW: "undefined",
+    width: "1140px",
+    height: "519px"
+}, {dom: [ ]}, {
+    dom: [
+        {
+            id: 'BG3',
+            type: 'image',
+            tag: 'img',
+            rect: ['0px', '0px', '1140px', '519px', 'auto', 'auto'],
+            fill: ["rgba(0,0,0,0)",'{{ imageUrl }}BG.gif','0px','0px']
+        }
+    ],
+    style: {
+        '${symbolSelector}': {
+            isStage: true,
+            rect: [undefined, undefined, '1140px', '519px'],
+            fill: ["rgba(255,255,255,1)"]
+        }
+    }
+});
+</script>
+<!--Adobe Edge Runtime End-->
+
+</head>
+<body style="margin:0;padding:0;">
+    {{ this.bbtoolbar()|raw }}
+    <div id="bb5-site-wrapper">
+        <div class="fluid-container">
+            <a id="bb-home-url" href="{{ this.getUri('/') }}" style="display: none;">&nbsp</a>
+            <div id="Stage" class="EDGE-332018913" style="z-index: 999999;"></div>
+        </div>
+    </div>
+
+</body>
+</html>

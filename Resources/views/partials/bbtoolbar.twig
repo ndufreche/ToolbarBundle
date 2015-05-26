@@ -4,10 +4,10 @@
 {% endif %}
 
 {% if this.isBBUser() %}
-    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/bb-ui' ~ isMin ~ '.css')) }}
-    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/vendor' ~ isMin ~ '.css')) }}
+    <link href="{{ this.getResourceUrl('toolbar/dist/css/bb-ui' ~ isMin ~ '.css') }}" rel="stylesheet">
+    <link href="{{ this.getResourceUrl('toolbar/dist/css/vendor' ~ isMin ~ '.css') }}" rel="stylesheet">
 {% else %}
-    {{ this.addStylesheet(this.getResourceUrl('toolbar/dist/css/bb-ui-login' ~ isMin ~ '.css')) }}
+    <link href="{{ this.getResourceUrl('toolbar/dist/css/bb-ui-login' ~ isMin ~ '.css') }}" rel="stylesheet">
 {% endif %}
 
 <script
