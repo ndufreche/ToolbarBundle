@@ -3,6 +3,11 @@ parameters:
     toolbar.bundle.controller.class: BackBee\Bundle\ToolbarBundle\Controller\ConfigController
     toolbar.bundle.plugin.manager.class: BackBee\Bundle\ToolbarBundle\Plugin\PluginManager
 
+    error.base_folder: %bbapp.base.dir%/../toolbar-bundle/Resources/layouts/error/
+    error.404: '404.twig'
+    error.500: '500.twig'
+    error.default: 'default.twig'
+
 services:
     plugin.manager:
         class: %toolbar.bundle.plugin.manager.class%
