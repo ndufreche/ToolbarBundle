@@ -3,7 +3,7 @@
     {% set isMin = '' %}
 {% endif %}
 
-{% if this.isBBUser() %}
+{% if bb.token != null %}
     <link href="{{ this.getResourceUrl('toolbar/dist/css/bb-ui' ~ isMin ~ '.css') }}" rel="stylesheet">
     <link href="{{ this.getResourceUrl('toolbar/dist/css/vendor' ~ isMin ~ '.css') }}" rel="stylesheet">
 {% else %}
@@ -18,7 +18,7 @@
 <div id="{{ wrapper }}"
     data-api="{{ this.getUri('/rest/1/') }}"
     data-toolbar-selector="true"
-    {% if this.isBBUser() %}
+    {% if bb.token != null %}
         data-autostart
         data-site-uid="{{ this.getCurrentPage().getSite().getUid() }}"
         data-page-uid="{{ this.getCurrentPage().getUid() }}"

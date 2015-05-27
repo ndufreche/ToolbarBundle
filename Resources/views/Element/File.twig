@@ -1,7 +1,7 @@
 <div {{ this.bbcontent()|raw }}>
     {% if path != '' %}
         <a href="{{ this.getMediaUrl(originalname) }}" target="_blank"></a>
-    {% elseif this.isBBUser() %}
+    {% elseif bb.token != null %}
         <p>Click here to add a file.</p>
     {% endif %}
 </div>
