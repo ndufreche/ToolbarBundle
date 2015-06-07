@@ -77,13 +77,16 @@ class bbcontent extends AbstractHelper
     {
         $result = '';
         $this->content = $content?: $this->getRenderer()->getObject();
+        $this->options = $options;
 
         if ($this->isGranted()) {
-            $this->options = $options;
-
             $result = $this->generateAttributesString();
 
             $this->reset();
+        } else {
+            $this->attributes['class'] = [];
+            $this->computeClassAttribute();
+            $result = $this->getAttributesString();
         }
 
         return $result;
