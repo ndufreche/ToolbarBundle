@@ -143,10 +143,13 @@ class bbcontent extends AbstractHelper
     private function computeClassAttribute()
     {
         $classes = isset($this->options['class']) ? $this->options['class'] : null;
-        if (null !== $classes) {
+        $paramClasses = $this->getRenderer()->getParam('class');
+
+        if (null !== $classes || null !== $paramClasses) {
             $this->attributes['class'] = array_merge(
                 $this->attributes['class'],
-                is_array($classes) ? $classes : explode(' ', $classes)
+                $classes !== null ? is_array($classes) ? $classes : explode(' ', $classes) : [],
+                $paramClasses !== null ? is_array($paramClasses) ? $paramClasses : explode(' ', $paramClasses) : []
             );
         }
     }
