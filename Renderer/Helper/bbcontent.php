@@ -76,15 +76,15 @@ class bbcontent extends AbstractHelper
     public function __invoke(AbstractClassContent $content = null, array $options = [])
     {
         $result = '';
+        $this->reset();
+
         $this->content = $content?: $this->getRenderer()->getObject();
         $this->options = $options;
 
         if ($this->isGranted()) {
+            $this->attributes['class'][] = 'bb-content';
             $result = $this->generateAttributesString();
-
-            $this->reset();
         } else {
-            $this->attributes['class'] = [];
             $this->computeClassAttribute();
             $result = $this->getAttributesString();
         }
@@ -117,7 +117,7 @@ class bbcontent extends AbstractHelper
     private function reset()
     {
         $this->attributes = [
-            'class'              => ['bb-content'],
+            'class'              => [],
             'data-bb-identifier' => null
         ];
 
@@ -192,10 +192,9 @@ class bbcontent extends AbstractHelper
     {
         $result = '';
 
-        $this->attributes['class'] = implode(' ', $this->attributes['class']);
         foreach ($this->attributes as $key => $value) {
             if (null !== $value) {
-                $result .= " $key=\"" . (is_bool($value) ? ($value ? 'true' : 'false') : $value) . '"';
+                $result .= " $key=\"" . (is_bool($value) ? ($value ? 'true' : 'false') : implode(' ', (array) $value)) . '"';
             }
         }
 
