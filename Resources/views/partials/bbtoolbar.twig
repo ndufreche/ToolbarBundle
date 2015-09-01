@@ -17,6 +17,7 @@
 
 <div id="{{ wrapper }}"
     data-api="{{ this.getUri('/rest/1/') }}"
+    data-base-url="{{ this.getUri('/') }}"
     data-toolbar-selector="true"
     {% if bb.token != null %}
         data-autostart
