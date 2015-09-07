@@ -23,6 +23,7 @@ namespace BackBee\Bundle\ToolbarBundle\Controller;
 
 use BackBee\Bundle\ToolbarBundle\Plugin\PluginManager;
 use BackBee\Config\Config;
+use BackBee\Routing\RouteCollection;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -48,15 +49,22 @@ class ConfigController
     private $pluginManager;
 
     /**
+     * @var RouteCollection
+     */
+    private $routeCollection;
+
+    /**
      * ConfigController's constructor
      *
-     * @param Config        $config
-     * @param PluginManager $manager
+     * @param Config          $config
+     * @param PluginManager   $manager
+     * @param RouteCollection $routeCollection
      */
-    public function __construct(Config $config, PluginManager $manager)
+    public function __construct(Config $config, PluginManager $manager, RouteCollection $routeCollection)
     {
         $this->config = $config;
         $this->pluginManager = $manager;
+        $this->routeCollection = $routeCollection;
     }
 
     /**
@@ -67,11 +75,32 @@ class ConfigController
     public function getAction()
     {
         $settings = $this->config->getSettingsConfig();
-        $corePlugins = $this->config->getPluginsConfig();
+        $corePlugins = $this->pluginManager->getPluginConfiguration();
 
-        return new JsonResponse(array_merge(
-            $settings ?: [],
-            $this->pluginManager->getPluginConfiguration()
-        ));
+        $config = array_merge($settings ?: [], $corePlugins);
+
+        return new JsonResponse($this->resolveResourceBaseUrl($config));
+    }
+
+    /**
+     * Resolves %resources-baseurl% in settings.
+     * 
+     * @param  array $settings
+     * 
+     * @return array
+     */
+    private function resolveResourceBaseUrl(array $settings)
+    {
+        array_walk_recursive(
+            $settings,
+            function (&$item, $key, RouteCollection $routeCollection) {
+                if (0 === strpos($item, '%resources-baseurl%')) {
+                    $item = $routeCollection->getUri(str_replace('%resources-baseurl%', '', $item), '/', null, RouteCollection::RESOURCE_URL);
+                }
+            },
+            $this->routeCollection
+        );
+
+        return $settings;
     }
 }
